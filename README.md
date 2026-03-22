@@ -278,7 +278,7 @@ Ctrl+Z     # Send SIGTSTP to stop foreground process
 
 ---
 
-**Built for learning Linux internals**
+**Built with ❤️ for learning Linux internals**
 ```
 
 This README is:
