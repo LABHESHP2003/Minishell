@@ -1,8 +1,4 @@
-Here's a cleaner, properly formatted README.md file for your Minishell project:
-
-## **README.md**
-
-```markdown
+````markdown
 # Minishell - A Custom Unix Shell Implementation
 
 ## Overview
@@ -69,30 +65,33 @@ Minishell is a minimalistic Unix shell implementation that provides essential sh
 ```bash
 git clone https://github.com/LABHESHP2003/Minishell.git
 cd Minishell
-```
+````
 
 2. **Build the project**
+
 ```bash
 make
 ```
 
 3. **Run the shell**
+
 ```bash
 ./minishell
 ```
 
 ### Build Options
 
-| Command | Description |
-|---------|-------------|
-| `make` | Build the minishell executable |
-| `make clean` | Remove object files only |
+| Command         | Description                        |
+| --------------- | ---------------------------------- |
+| `make`          | Build the minishell executable     |
+| `make clean`    | Remove object files only           |
 | `make cleanall` | Remove object files and executable |
-| `make run` | Build and run the shell |
+| `make run`      | Build and run the shell            |
 
 ## Usage Examples
 
 ### Basic Commands
+
 ```bash
 minishell$ pwd
 /home/user/minishell
@@ -110,6 +109,7 @@ minishell$ pwd
 ```
 
 ### Special Variables
+
 ```bash
 minishell$ echo $$
 12345
@@ -120,6 +120,7 @@ minishell$ echo $SHELL
 ```
 
 ### Custom Prompt
+
 ```bash
 minishell$ PS1=my_shell> 
 my_shell> pwd
@@ -129,6 +130,7 @@ minishell$
 ```
 
 ### Pipeline Examples
+
 ```bash
 minishell$ ls -l | wc -l
 12
@@ -142,6 +144,7 @@ user
 ```
 
 ### Job Control
+
 ```bash
 minishell$ sleep 100
 ^Z
@@ -164,6 +167,7 @@ Child 12346 terminated by signal 2
 ```
 
 ### Exit Status
+
 ```bash
 minishell$ ls /nonexistent
 ls: cannot access '/nonexistent': No such file or directory
@@ -192,31 +196,35 @@ Minishell/
 ## Technical Details
 
 ### System Calls Used
-- `fork()` - Create child processes
-- `execvp()` - Execute external programs
-- `waitpid()` - Wait for process state changes
-- `pipe()` - Create communication channels
-- `dup2()` - Redirect file descriptors
-- `chdir()` - Change working directory
-- `getcwd()` - Get current working directory
-- `kill()` - Send signals to processes
-- `sigaction()` - Set signal handlers
-- `strtok()` - Parse input strings
+
+* `fork()` - Create child processes
+* `execvp()` - Execute external programs
+* `waitpid()` - Wait for process state changes
+* `pipe()` - Create communication channels
+* `dup2()` - Redirect file descriptors
+* `chdir()` - Change working directory
+* `getcwd()` - Get current working directory
+* `kill()` - Send signals to processes
+* `sigaction()` - Set signal handlers
+* `strtok()` - Parse input strings
 
 ### Process Management
-- Parent process tracks foreground PID
-- Background jobs stored in linked list
-- Process states: RUNNING, STOPPED
-- Automatic job cleanup on termination
+
+* Parent process tracks foreground PID
+* Background jobs stored in linked list
+* Process states: RUNNING, STOPPED
+* Automatic job cleanup on termination
 
 ### Signal Handling Strategy
-- **SIGINT**: Forward to foreground process or redisplay prompt
-- **SIGTSTP**: Stop foreground process and add to job list
-- **SA_RESTART**: Automatically restart interrupted system calls
+
+* **SIGINT**: Forward to foreground process or redisplay prompt
+* **SIGTSTP**: Stop foreground process and add to job list
+* **SA_RESTART**: Automatically restart interrupted system calls
 
 ## Learning Outcomes
 
 This project demonstrates understanding of:
+
 1. Process Creation and Management: fork(), exec(), wait()
 2. Inter-process Communication: pipes for command chaining
 3. Signal Handling: custom handlers for Ctrl+C, Ctrl+Z
@@ -227,26 +235,28 @@ This project demonstrates understanding of:
 
 ## Requirements Met
 
-| Requirement | Status |
-|-------------|--------|
-| Customizable prompt (PS1) | ✅ Complete |
-| External command execution | ✅ Complete |
+| Requirement                        | Status     |
+| ---------------------------------- | ---------- |
+| Customizable prompt (PS1)          | ✅ Complete |
+| External command execution         | ✅ Complete |
 | Special variables ($$, $?, $SHELL) | ✅ Complete |
-| Signal handling (Ctrl+C, Ctrl+Z) | ✅ Complete |
-| Built-in commands (cd, pwd, exit) | ✅ Complete |
-| Job control (jobs, fg, bg) | ✅ Complete |
-| Pipe functionality | ✅ Complete |
+| Signal handling (Ctrl+C, Ctrl+Z)   | ✅ Complete |
+| Built-in commands (cd, pwd, exit)  | ✅ Complete |
+| Job control (jobs, fg, bg)         | ✅ Complete |
+| Pipe functionality                 | ✅ Complete |
 
 ## Author
 
 **Labhesh Patil**
-- GitHub: [@LABHESHP2003](https://github.com/LABHESHP2003)
+
+* GitHub: [@LABHESHP2003](https://github.com/LABHESHP2003)
 
 ---
 
 ## Quick Reference
 
 ### Basic Commands
+
 ```bash
 pwd              # Show current directory
 cd [dir]         # Change directory
@@ -258,6 +268,7 @@ bg               # Resume stopped job
 ```
 
 ### Special Variables
+
 ```bash
 echo $$          # Show shell PID
 echo $?          # Show last exit status
@@ -265,6 +276,7 @@ echo $SHELL      # Show shell path
 ```
 
 ### Pipeline Examples
+
 ```bash
 cmd1 | cmd2                    # Single pipe
 cmd1 | cmd2 | cmd3              # Multiple pipes
@@ -272,6 +284,7 @@ ls -l | grep ".c" | wc -l       # Count C files
 ```
 
 ### Signal Shortcuts
+
 ```
 Ctrl+C     # Send SIGINT to foreground process
 Ctrl+Z     # Send SIGTSTP to stop foreground process
