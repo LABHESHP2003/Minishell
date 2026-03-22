@@ -1,4 +1,3 @@
-````markdown
 # Minishell - A Custom Unix Shell Implementation
 
 ## Overview
@@ -31,7 +30,7 @@ Minishell is a minimalistic Unix shell implementation that provides essential sh
 | `exit` | Exit the shell |
 | `clear` | Clear the terminal screen |
 | `jobs` | List background and stopped jobs |
-| `fg [pid]` | Bring job to foreground (last stopped job or specified PID) |
+| `fg [pid]` | Bring job to foreground |
 | `bg` | Resume stopped job in background |
 
 ### Job Control
@@ -41,52 +40,39 @@ Minishell is a minimalistic Unix shell implementation that provides essential sh
 - Foreground/background process switching
 
 ### Signal Handling
-- **Ctrl+C (SIGINT)**: Send interrupt signal to foreground process or redisplay prompt
-- **Ctrl+Z (SIGTSTP)**: Stop foreground process and add to background jobs list
+- **Ctrl+C (SIGINT)**: Interrupt foreground process
+- **Ctrl+Z (SIGTSTP)**: Stop foreground process
 
 ### Pipeline Support
 - Execute multiple commands connected with pipes `|`
-- Dynamic pipe creation for any number of commands
-- Examples: 
+- Examples:
   - `ls -l | wc -l`
-  - `ls -l /dev | grep tty | wc -l`
   - `ps aux | grep bash | wc -l`
 
 ## Getting Started
 
 ### Prerequisites
-- Linux/Unix operating system
+- Linux/Unix OS
 - GCC compiler
 - Make utility
 
 ### Installation
 
-1. **Clone the repository**
 ```bash
 git clone https://github.com/LABHESHP2003/Minishell.git
 cd Minishell
-````
-
-2. **Build the project**
-
-```bash
 make
-```
-
-3. **Run the shell**
-
-```bash
 ./minishell
 ```
 
 ### Build Options
 
-| Command         | Description                        |
-| --------------- | ---------------------------------- |
-| `make`          | Build the minishell executable     |
-| `make clean`    | Remove object files only           |
-| `make cleanall` | Remove object files and executable |
-| `make run`      | Build and run the shell            |
+| Command | Description |
+|--------|-------------|
+| `make` | Build executable |
+| `make clean` | Remove object files |
+| `make cleanall` | Remove all |
+| `make run` | Build and run |
 
 ## Usage Examples
 
