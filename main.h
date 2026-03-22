@@ -1,3 +1,13 @@
+/***************************************************************************************************************************************************
+* Author        : Labhesh Patil
+* Date          : Wed Feb 04 2026
+* File          : main.h
+* Title         : Minishell master header file
+* Description   : Master header file containing all necessary includes, macro definitions for return codes,
+*                 command types, size limits, structure declarations for job management and shell state,
+*                 and function prototypes for the entire minishell implementation.
+****************************************************************************************************************************************************/
+
 #ifndef MAIN_H
 #define MAIN_H
 

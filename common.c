@@ -1,3 +1,13 @@
+/***************************************************************************************************************************************************
+* Author        : Labhesh Patil
+* Date          : Mon Feb 09 2026
+* File          : common.c
+* Title         : Utility functions for command parsing and type detection
+* Description   : Provides helper functions for parsing user input into argument arrays, detecting command
+*                 types (external, built-in, echo), and maintaining the built-in command list. Also includes
+*                 the echo implementation with support for special variable expansion ($$, $?, $SHELL).
+****************************************************************************************************************************************************/
+
 #include "main.h"
 
 // list of builtin commands

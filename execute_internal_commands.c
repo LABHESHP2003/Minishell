@@ -1,3 +1,14 @@
+/***************************************************************************************************************************************************
+* Author        : Labhesh Patil
+* Date          : Thu Feb 05 2026
+* File          : execute_internal_commands.c
+* Title         : Built-in command execution handler
+* Description   : Implements all shell built-in commands including cd for directory changes, pwd for current
+*                 directory display, jobs for listing background processes, fg for bringing jobs to foreground,
+*                 and bg for resuming stopped jobs in background. All built-ins execute within the shell process
+*                 without forking, maintaining the shell's internal state.
+****************************************************************************************************************************************************/
+
 #include "main.h"
 
 // Builtin commands(internal cmd)

@@ -1,3 +1,14 @@
+/***************************************************************************************************************************************************
+* Author        : Labhesh Patil
+* Date          : Fri Feb 06 2026
+* File          : job_management.c
+* Title         : Background job management system
+* Description   : Manages background and stopped processes using a singly linked list. Provides functions to
+*                 insert new jobs, delete terminated jobs, find stopped jobs, update job states, and refresh
+*                 the job list by checking process statuses. Displays job information including PID and state
+*                 (Running/Stopped) for the jobs command.
+****************************************************************************************************************************************************/
+
 #include "main.h"
 
 job_t *head = NULL;

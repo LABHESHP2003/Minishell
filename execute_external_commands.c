@@ -1,3 +1,14 @@
+/***************************************************************************************************************************************************
+* Author        : Labhesh Patil
+* Date          : Thu Feb 05 2026
+* File          : execute_external_commands.c
+* Title         : External command execution handler
+* Description   : Handles execution of external programs by forking a child process and using execvp.
+*                 Parent process waits for foreground commands, tracks exit status, handles stopped processes
+*                 via SIGTSTP, and adds them to the background job list. Properly reports termination reasons
+*                 and exit values for all executed external commands.
+****************************************************************************************************************************************************/
+
 #include "main.h"
 
 // Execute external command 
@@ -7,8 +18,10 @@ int execute_external_commands(char *cmd[])
     pid_t pid = fork();
     int exit_val = 0;
 
+    // Child process
     if (pid == 0)
     {
+        //reset signal handlers to default
         signal(SIGINT, SIG_DFL);
         signal(SIGTSTP, SIG_DFL);
 
@@ -31,7 +44,7 @@ int execute_external_commands(char *cmd[])
             }
         }
     }
-    else if (pid > 0)
+    else if (pid > 0)//parent process
     {
         SHELL.fg_pid = pid;
 
@@ -42,7 +55,7 @@ int execute_external_commands(char *cmd[])
             SHELL.fg_pid = -1;
             return FAILURE;
         }
-
+        //check if process was stopped
         if (WIFSTOPPED(status))
         {
             printf("The child %d stopped by receiving the signal %d\n", pid, (exit_val = WSTOPSIG(status)));
@@ -54,6 +67,7 @@ int execute_external_commands(char *cmd[])
 
         SHELL.fg_pid = -1;
 
+        // Check exit status
         if (WIFEXITED(status))
         {
             printf("The child %d terminated normally with value %d\n", pid, (exit_val = WEXITSTATUS(status)));

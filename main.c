@@ -1,9 +1,20 @@
+/***************************************************************************************************************************************************
+* Author        : Labhesh Patil
+* Date          : Wed Feb 04 2026
+* File          : main.c
+* Title         : Minishell main program driver
+* Description   : Main driver for the minishell. Initializes shell environment, sets up signal handlers,
+*                 enters the infinite command loop, reads and parses user input, detects pipes and background
+*                 execution, and dispatches commands to appropriate handlers (built-in, external, echo).
+*                 Manages global shell state including exit status, foreground process tracking, and prompt.
+****************************************************************************************************************************************************/
+
 #include "main.h"
 
 // global shell
 shell_state_t SHELL;
 
-// Implementation of echo command
+//Implementation of echo command
 void echo(char *args[])
 {
     for (int i = 1; args[i] != NULL; i++)
